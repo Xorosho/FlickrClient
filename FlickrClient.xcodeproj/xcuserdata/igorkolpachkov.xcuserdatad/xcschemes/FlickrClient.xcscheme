@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED2306B31AB84DE6003B685C"
-               BuildableName = "FlickrClient.app"
+               BuildableName = "Flickr (IK).app"
                BlueprintName = "FlickrClient"
                ReferencedContainer = "container:FlickrClient.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED2306B31AB84DE6003B685C"
-            BuildableName = "FlickrClient.app"
+            BuildableName = "Flickr (IK).app"
             BlueprintName = "FlickrClient"
             ReferencedContainer = "container:FlickrClient.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED2306B31AB84DE6003B685C"
-            BuildableName = "FlickrClient.app"
+            BuildableName = "Flickr (IK).app"
             BlueprintName = "FlickrClient"
             ReferencedContainer = "container:FlickrClient.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED2306B31AB84DE6003B685C"
-            BuildableName = "FlickrClient.app"
+            BuildableName = "Flickr (IK).app"
             BlueprintName = "FlickrClient"
             ReferencedContainer = "container:FlickrClient.xcodeproj">
          </BuildableReference>
