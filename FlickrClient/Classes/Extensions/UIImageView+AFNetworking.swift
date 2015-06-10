@@ -74,7 +74,7 @@ extension UIImageView {
     {
         let requestMutable:NSMutableURLRequest = NSMutableURLRequest(URL: url)
         requestMutable.addValue("image/*", forHTTPHeaderField: "Accept")
-        let request: NSURLRequest! = requestMutable
+        let request: NSURLRequest = requestMutable
         
         self.cancelImageRequestOperation()
         
