@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2336F01C4F81F02321CA72E2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E166D1F8A1C56FB17E3D78D /* libPods.a */; };
+		5E45F39B6CD6FB4FA7A2BB8F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93288D2BFB481AB4C88B3843 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ED2306BA1AB84DE6003B685C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2306B91AB84DE6003B685C /* AppDelegate.swift */; };
 		ED2306BC1AB84DE6003B685C /* ExposureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2306BB1AB84DE6003B685C /* ExposureViewController.swift */; };
 		ED2306C11AB84DE6003B685C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED2306C01AB84DE6003B685C /* Images.xcassets */; };
@@ -23,8 +23,8 @@
 
 /* Begin PBXFileReference section */
 		2592CFDB4C5FBFD72CEBC4A6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		7E166D1F8A1C56FB17E3D78D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEDC42FCF6DF1C92F5A6B0E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		93288D2BFB481AB4C88B3843 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2306B41AB84DE6003B685C /* Flickr (IK).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr (IK).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2306B81AB84DE6003B685C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED2306B91AB84DE6003B685C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2336F01C4F81F02321CA72E2 /* libPods.a in Frameworks */,
+				5E45F39B6CD6FB4FA7A2BB8F /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,7 @@
 		AAFDEDE8FC0D55C9BFFA3C62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7E166D1F8A1C56FB17E3D78D /* libPods.a */,
+				93288D2BFB481AB4C88B3843 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,6 +184,7 @@
 				ED2306B11AB84DE6003B685C /* Frameworks */,
 				ED2306B21AB84DE6003B685C /* Resources */,
 				943C03B239A9C158C7693DA9 /* Copy Pods Resources */,
+				49A902A5127880BC0C107796 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +254,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		49A902A5127880BC0C107796 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		943C03B239A9C158C7693DA9 /* Copy Pods Resources */ = {
@@ -388,8 +404,8 @@
 			baseConfigurationReference = 2592CFDB4C5FBFD72CEBC4A6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -411,8 +427,8 @@
 			baseConfigurationReference = 7EEDC42FCF6DF1C92F5A6B0E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

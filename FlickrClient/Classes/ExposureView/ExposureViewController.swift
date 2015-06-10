@@ -75,19 +75,20 @@ class ExposureViewController: UIViewController, UISearchBarDelegate
         })
     }
     
-    func changeFlickrImage(image: UIImage?)
+    func changeFlickrImage(newImage: UIImage?)
     {
-        if (image == nil)
+        if let image = newImage
+        {
+            let imageSize: CGSize = image.size
+            let newFlickrImageViewRect = exposureView!.calculateFlickrImageViewRect(imageSize:imageSize)
+            exposureView!.flickrImageView.image = image
+            exposureView!.flickrImageView.frame = newFlickrImageViewRect
+            exposureView!.flickrImageView.playBounceAnimation()
+        }
+        else
         {
             showInformationAlert("Where is no photo for this request")
-            return
         }
-        
-        let imageSize: CGSize = image!.size
-        let newFlickrImageViewRect = exposureView!.calculateFlickrImageViewRect(imageSize:imageSize)
-        exposureView!.flickrImageView.image = image
-        exposureView!.flickrImageView.frame = newFlickrImageViewRect
-        exposureView!.flickrImageView.playBounceAnimation()
     }
     
     func showInformationAlert(text: String!)
