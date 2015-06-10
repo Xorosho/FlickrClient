@@ -8,7 +8,13 @@
 
 import Foundation
 
-typealias SearchAPICallback = (photosData: [FlickrPhoto]?, error: NSError?) -> ()
+enum SearchAPIResponse
+{
+    case Ok([FlickrPhoto])
+    case Error(NSError)
+}
+
+typealias SearchAPICallback = (SearchAPIResponse) -> ()
 
 let flickrKey: String = "6f159d26d2b96ba2b2d84d441a0ab74c"
 //let flickrSecret: String = "5157a5124d676957"
@@ -28,7 +34,7 @@ class FlickrProvider
         if (serchText == "")
         {
             let invalidSearchText = NSError(domain:"com.flickrProvider.searchCorrespondingImagesAPI", code:FlickrAPIErrors.invalidInputParameters, userInfo:nil)
-            callback(photosData: nil, error: invalidSearchText)
+            callback(SearchAPIResponse.Error(invalidSearchText))
             return
         }
         
@@ -51,7 +57,7 @@ class FlickrProvider
         networkManager.GET(searchAPIURLString, parameters: parameters, success:
         {
             (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
-            var responseData: NSDictionary = responseObject as NSDictionary
+            var responseData: NSDictionary = responseObject as! NSDictionary
             println("FlickrProvider. searchCorrespondingImagesAPI. Responce data: \(responseData)")
             
             if let statusCode = responseData["stat"] as? String
@@ -59,13 +65,13 @@ class FlickrProvider
                 if statusCode != "ok"
                 {
                     let serverResponseError = NSError(domain:"com.flickrProvider.searchCorrespondingImagesAPI", code:FlickrAPIErrors.invalidServerResponse, userInfo: nil)
-                    callback(photosData: nil, error: serverResponseError)
+                    callback(SearchAPIResponse.Error(serverResponseError))
                     return
                 }
             }
             
-            let photosContainer = responseData["photos"] as NSDictionary
-            let photosArray = photosContainer["photo"] as [NSDictionary]
+            let photosContainer = responseData["photos"] as! NSDictionary
+            let photosArray = photosContainer["photo"] as! [NSDictionary]
             let flickrPhotos: [FlickrPhoto] = photosArray.map
             {
                 photoDictionary in
@@ -78,14 +84,15 @@ class FlickrProvider
                 let flickrPhoto = FlickrPhoto(photoId: photoId, farm: farm, secret: secret, server: server, title: title)
                 return flickrPhoto
             }
-            callback(photosData: flickrPhotos, error: nil)
+            callback(SearchAPIResponse.Ok(flickrPhotos))
+
         },
         failure:
         {
             (operation: AFHTTPRequestOperation!, error: NSError!)  -> Void in
             
             let serverResponseError = NSError(domain:"com.flickrProvider.searchCorrespondingImagesAPI", code:FlickrAPIErrors.invalidServerResponse, userInfo: nil)
-            callback(photosData: nil, error: serverResponseError)
+            callback(SearchAPIResponse.Error(serverResponseError))
         })
     }
 }

@@ -15,11 +15,10 @@
 		EDAB94901AB8B2AF007F9FE9 /* ExposureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAB948F1AB8B2AF007F9FE9 /* ExposureView.xib */; };
 		EDAB94921AB8BB6B007F9FE9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2306C21AB84DE6003B685C /* LaunchScreen.xib */; };
 		EDAB94951AB8BE32007F9FE9 /* UIView+creation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB94941AB8BE32007F9FE9 /* UIView+creation.swift */; };
-		EDAB949F1AB8DAE1007F9FE9 /* UIImageView+activityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB949E1AB8DAE1007F9FE9 /* UIImageView+activityIndicator.swift */; };
 		EDAB94A11AB8E1D0007F9FE9 /* UIImageView+AFNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB94A01AB8E1D0007F9FE9 /* UIImageView+AFNetworking.swift */; };
 		EDAB94A41AB8F144007F9FE9 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB94A31AB8F144007F9FE9 /* FlickrPhoto.swift */; };
 		EDAB94A61AB8F401007F9FE9 /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB94A51AB8F401007F9FE9 /* FlickrProvider.swift */; };
-		EDAB94AE1ABA04EF007F9FE9 /* UIView+animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB94AD1ABA04EF007F9FE9 /* UIView+animations.swift */; };
+		EDE85DDC1B28D42400425CA5 /* UIImageViewWithActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE85DDB1B28D42400425CA5 /* UIImageViewWithActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,11 +35,10 @@
 		EDAB948D1AB8B1DA007F9FE9 /* ExposureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExposureView.swift; path = Classes/ExposureView/ExposureView.swift; sourceTree = "<group>"; };
 		EDAB948F1AB8B2AF007F9FE9 /* ExposureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExposureView.xib; path = Classes/ExposureView/ExposureView.xib; sourceTree = "<group>"; };
 		EDAB94941AB8BE32007F9FE9 /* UIView+creation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+creation.swift"; path = "Classes/Extensions/UIView+creation.swift"; sourceTree = "<group>"; };
-		EDAB949E1AB8DAE1007F9FE9 /* UIImageView+activityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+activityIndicator.swift"; path = "Classes/Extensions/UIImageView+activityIndicator.swift"; sourceTree = "<group>"; };
 		EDAB94A01AB8E1D0007F9FE9 /* UIImageView+AFNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+AFNetworking.swift"; path = "Classes/Extensions/UIImageView+AFNetworking.swift"; sourceTree = "<group>"; };
 		EDAB94A31AB8F144007F9FE9 /* FlickrPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrPhoto.swift; path = Classes/Model/FlickrPhoto.swift; sourceTree = "<group>"; };
 		EDAB94A51AB8F401007F9FE9 /* FlickrProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrProvider.swift; path = Classes/Model/FlickrProvider.swift; sourceTree = "<group>"; };
-		EDAB94AD1ABA04EF007F9FE9 /* UIView+animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+animations.swift"; path = "Classes/Extensions/UIView+animations.swift"; sourceTree = "<group>"; };
+		EDE85DDB1B28D42400425CA5 /* UIImageViewWithActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewWithActivityIndicator.swift; path = Classes/Utilities/UIImageViewWithActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				ED2306B91AB84DE6003B685C /* AppDelegate.swift */,
+				EDE85DDA1B28D3E700425CA5 /* Utilities */,
 				EDAB94911AB8B2D0007F9FE9 /* LaunchScreen */,
 				EDAB94A21AB8F10B007F9FE9 /* Model */,
 				EDAB94931AB8BDC8007F9FE9 /* Extensions */,
@@ -151,9 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				EDAB94941AB8BE32007F9FE9 /* UIView+creation.swift */,
-				EDAB949E1AB8DAE1007F9FE9 /* UIImageView+activityIndicator.swift */,
 				EDAB94A01AB8E1D0007F9FE9 /* UIImageView+AFNetworking.swift */,
-				EDAB94AD1ABA04EF007F9FE9 /* UIView+animations.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -165,6 +162,14 @@
 				EDAB94A51AB8F401007F9FE9 /* FlickrProvider.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		EDE85DDA1B28D3E700425CA5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EDE85DDB1B28D42400425CA5 /* UIImageViewWithActivityIndicator.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,13 +278,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED2306BC1AB84DE6003B685C /* ExposureViewController.swift in Sources */,
-				EDAB949F1AB8DAE1007F9FE9 /* UIImageView+activityIndicator.swift in Sources */,
 				EDAB94A11AB8E1D0007F9FE9 /* UIImageView+AFNetworking.swift in Sources */,
 				EDAB94951AB8BE32007F9FE9 /* UIView+creation.swift in Sources */,
 				EDAB94A41AB8F144007F9FE9 /* FlickrPhoto.swift in Sources */,
+				EDE85DDC1B28D42400425CA5 /* UIImageViewWithActivityIndicator.swift in Sources */,
 				EDAB94A61AB8F401007F9FE9 /* FlickrProvider.swift in Sources */,
 				EDAB948E1AB8B1DA007F9FE9 /* ExposureView.swift in Sources */,
-				EDAB94AE1ABA04EF007F9FE9 /* UIView+animations.swift in Sources */,
 				ED2306BA1AB84DE6003B685C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,8 +388,8 @@
 			baseConfigurationReference = 2592CFDB4C5FBFD72CEBC4A6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -407,8 +411,8 @@
 			baseConfigurationReference = 7EEDC42FCF6DF1C92F5A6B0E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Room 8 Limited";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,7 +424,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Flickr (IK)";
-				PROVISIONING_PROFILE = "0cdeff44-be9f-4e0a-9309-c911e9b6c7b2";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = FlickrClient/Classes/Utilities/ObjectiveCBridge.h;
 			};
 			name = Release;

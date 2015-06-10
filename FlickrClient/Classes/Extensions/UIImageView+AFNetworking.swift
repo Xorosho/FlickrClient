@@ -98,7 +98,7 @@ extension UIImageView {
             var error:NSError?
             let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                if request.URL.isEqual(self.af_requestImageOperation.request?.URL) {
+                if request.URL!.isEqual(self.af_requestImageOperation.request?.URL) {
                     var image:UIImage? = (data != nil ? UIImage(data: data!) : nil)
                     if image != nil {
                         if success != nil {
@@ -130,7 +130,7 @@ extension UIImageView {
 }
 
 func AFImageCacheKeyFromURLRequest(request:NSURLRequest) -> String {
-    return request.URL.absoluteString!
+    return request.URL!.absoluteString!
 }
 
 class AFImageCache: NSCache, AFImageCacheProtocol {
@@ -150,3 +150,7 @@ class AFImageCache: NSCache, AFImageCacheProtocol {
         self.setObject(image, forKey: AFImageCacheKeyFromURLRequest(request))
     }
 }
+
+
+
+

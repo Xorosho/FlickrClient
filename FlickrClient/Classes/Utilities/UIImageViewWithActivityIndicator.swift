@@ -1,5 +1,5 @@
 //
-//  UIImageView+activityIndicator.swift
+//  UIImageViewWithActivityIndicator.swift
 //  FlickrClient
 //
 //  Created by Igor Kolpachkov on 18.03.15.
@@ -11,22 +11,14 @@ import ObjectiveC
 
 private var activityIndicatorAssociationKey: UInt8 = 0
 
-extension UIView
+class UIImageViewWithActivityIndicator : UIImageView
 {
-    var activityIndicator: UIActivityIndicatorView!
+    lazy var activityIndicator: UIActivityIndicatorView! =
     {
-        get
-        {
-            var indicator = objc_getAssociatedObject(self, &activityIndicatorAssociationKey) as? UIActivityIndicatorView
-            if (indicator == nil)
-            {
-                indicator = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50))
-                indicator!.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
-                objc_setAssociatedObject(self, &activityIndicatorAssociationKey, indicator, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
-            }
-            return indicator
-        }
-    }
+        var indicator = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
+        return indicator
+    }()
     
     func startActivityIndicator()
     {
@@ -46,5 +38,14 @@ extension UIView
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
         }
+    }
+    
+    func playBounceAnimation()
+    {
+        var bounceAnimation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+        bounceAnimation.values = [0.99, 1.01, 1.0]
+        bounceAnimation.keyTimes = [0.0, 0.2, 1.0]
+        bounceAnimation.duration = 0.3
+        self.layer.addAnimation(bounceAnimation, forKey: "bounce")
     }
 }

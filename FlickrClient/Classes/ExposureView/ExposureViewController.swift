@@ -36,7 +36,8 @@ class ExposureViewController: UIViewController, UISearchBarDelegate
         super.didReceiveMemoryWarning()
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override func prefersStatusBarHidden() -> Bool
+    {
         return false
     }
     
@@ -108,16 +109,16 @@ class ExposureViewController: UIViewController, UISearchBarDelegate
     }
     
 //MARK: FLICKR PROVIDER HANDLERS
-    func searchCorrespondingImagesAPIHandler(photosData: [FlickrPhoto]?, error: NSError?)
+    func searchCorrespondingImagesAPIHandler(response: SearchAPIResponse)
     {
-        if (error != nil)
+        switch response
         {
-            showInformationAlert(error!.description)
-            return
+        case .Error(let error):
+            showInformationAlert(error.description)
+        case .Ok(let photos):
+            photosArray = photos
+            showRandomPhoto()
         }
-        
-        photosArray = photosData
-        showRandomPhoto()
     }
     
     func showRandomPhoto()
@@ -139,6 +140,7 @@ class ExposureViewController: UIViewController, UISearchBarDelegate
         photosArray!.removeAtIndex(randomIndex)
     }
 }
+
 
 
 

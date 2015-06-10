@@ -11,7 +11,7 @@ import UIKit
 class ExposureView: UIView
 {
     @IBOutlet weak var searchBar: UISearchBar!
-    var flickrImageView: UIImageView! = UIImageView()
+    var flickrImageView: UIImageViewWithActivityIndicator = UIImageViewWithActivityIndicator()
     var showNextLoadedPhotoControl: UIControl?
     
     func setupViewElements()
@@ -38,9 +38,9 @@ class ExposureView: UIView
     {
         let maxRect = maxAllowedFlickrImageViewRect()
         showNextLoadedPhotoControl?.frame = maxRect
-        if (flickrImageView.image != nil)
+        if let image = flickrImageView.image
         {
-            let imageSize:CGSize = flickrImageView.image!.size
+            let imageSize:CGSize = image.size
             flickrImageView.frame = calculateFlickrImageViewRect(imageSize:imageSize)
         }
         else
